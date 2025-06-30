@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyflxl30netqr"]
+
+[ext_resource type="Script" uid="uid://buf75dt4jiyib" path="res://scripts/gd_script_scene.gd" id="2_f0hnl"]
+[ext_resource type="Texture2D" uid="uid://n1hrr4wsib03" path="res://assets/phd_game_logo_2.png" id="2_hm65n"]
+[ext_resource type="Script" uid="uid://glkjl2vwrmvt" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="3_gdtfr"]
+[ext_resource type="Resource" uid="uid://cmnanlsystim6" path="res://resources/ArcweaveAsset.tres" id="4_4luil"]
+
+[node name="GDScriptScene" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("2_f0hnl")
+
+[node name="ButtonSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hm65n")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StoryContainer" type="VBoxContainer" parent="."]
+modulate = Color(0.886262, 0.886261, 0.886262, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StoryContainer"]
+layout_mode = 2
+
+[node name="TextWindow" type="RichTextLabel" parent="StoryContainer/ScrollContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="StoryContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UIButtonsContainer" type="HBoxContainer" parent="StoryContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RefreshButton" type="Button" parent="StoryContainer/UIButtonsContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Refresh Project"
+
+[node name="RestartButton" type="Button" parent="StoryContainer/UIButtonsContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Restart Story
+"
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 525.0
+offset_right = 76.0
+offset_bottom = 556.0
+mouse_default_cursor_shape = 2
+text = "Menu"
+
+[node name="ArcweaveNode" type="Node" parent="."]
+script = ExtResource("3_gdtfr")
+ArcweaveAsset = ExtResource("4_4luil")
